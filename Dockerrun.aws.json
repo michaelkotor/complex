@@ -1,0 +1,9 @@
+{
+  "AWSEDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": milan3020/
+    }
+  ]
+}
