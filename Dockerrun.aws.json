@@ -3,7 +3,34 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": milan3020/
+      "image": "milan3020/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "ngnix",
+      "image": "milan3020/multi-ngnix",
+      "hostname": "ngnix",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    },
+    {
+      "name": "server",
+      "image": "milan3020/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "milan3020/multi-worker",
+      "hostname": "worker",
+      "essential": false
     }
   ]
 }
